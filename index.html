@@ -99,7 +99,7 @@ document.getElementById('simulacionForm').addEventListener('submit', async funct
     };
 
     try {
-        const response = await fetch('https://fredrick-overcanny-regena.ngrok-free.dev/webhook/testing-simulacion', {
+        const response = await fetch('https://fredrick-overcanny-regena.ngrok-free.dev/webhook-test/testing-simulacion', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -116,5 +116,6 @@ document.getElementById('simulacionForm').addEventListener('submit', async funct
     } catch (error) {
         document.getElementById('message').textContent = 'No se pudo conectar con el webhook. Se simuló el envío.';
         document.getElementById('message').sty
+
 
 
