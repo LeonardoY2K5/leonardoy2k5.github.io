@@ -1,0 +1,24 @@
+<form action="http://localhost:5678/webhook-test/testing-simulacion" method="POST">
+  <label>Resultados de pruebas unitarias:</label>
+  <select name="pruebas_unitarias">
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+  </select>
+
+  <label>Resultados de pruebas QA:</label>
+  <select name="pruebas_qa">
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+  </select>
+
+  <label>Corrección de errores:</label>
+  <select name="correccion_errores">
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+  </select>
+
+  <label>Versión simulada:</label>
+  <input type="text" name="version" placeholder="v1.0.0">
+
+  <button type="submit">Enviar</button>
+</form>
