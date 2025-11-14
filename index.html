@@ -51,7 +51,7 @@
         .message {
             text-align: center;
             margin-top: 15px;
-            color: green;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -105,18 +105,14 @@ document.getElementById('simulacionForm').addEventListener('submit', async funct
             body: JSON.stringify(data)
         });
 
+        // Si el webhook no responde OK (200-299), mostramos un mensaje igualmente
         if (response.ok) {
-            document.getElementById('message').textContent = '¡Formulario enviado correctamente!';
+            document.getElementById('message').textContent = 'Formulario enviado correctamente.';
+            document.getElementById('message').style.color = 'green';
         } else {
-            document.getElementById('message').textContent = 'Error al enviar el formulario.';
-            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').textContent = 'Webhook no disponible. Se simuló el envío.';
+            document.getElementById('message').style.color = 'orange';
         }
     } catch (error) {
-        document.getElementById('message').textContent = 'Error de conexión.';
-        document.getElementById('message').style.color = 'red';
-    }
-});
-</script>
-
-</body>
-</html>
+        document.getElementById('message').textContent = 'No se pudo conectar con el webhook. Se simuló el envío.';
+        document.getElementById('message').sty
