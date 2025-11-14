@@ -60,19 +60,19 @@
 <div class="form-container">
     <h2>Formulario de Simulación</h2>
     <form id="simulacionForm">
-        <label for="pruebas_unitarias">Resultados de pruebas unitarias:</label>
+        <label for="pruebas_unitarias">¿Pruebas unitarias OK?</label>
         <select id="pruebas_unitarias" name="pruebas_unitarias">
             <option value="si">Sí</option>
             <option value="no">No</option>
         </select>
 
-        <label for="pruebas_qa">Resultados de pruebas QA:</label>
+        <label for="pruebas_qa">¿Errores detectados?:</label>
         <select id="pruebas_qa" name="pruebas_qa">
             <option value="si">Sí</option>
             <option value="no">No</option>
         </select>
 
-        <label for="correccion_errores">Corrección de errores:</label>
+        <label for="correccion_errores">¿Errores corregidos?</label>
         <select id="correccion_errores" name="correccion_errores">
             <option value="si">Sí</option>
             <option value="no">No</option>
@@ -116,3 +116,4 @@ document.getElementById('simulacionForm').addEventListener('submit', async funct
     } catch (error) {
         document.getElementById('message').textContent = 'No se pudo conectar con el webhook. Se simuló el envío.';
         document.getElementById('message').sty
+
