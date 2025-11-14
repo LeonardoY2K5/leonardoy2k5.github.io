@@ -48,13 +48,18 @@
         button:hover {
             background-color: #45a049;
         }
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            color: green;
+        }
     </style>
 </head>
 <body>
 
 <div class="form-container">
     <h2>Formulario de Simulación</h2>
-    <form action="https://fredrick-overcanny-regena.ngrok-free.dev/webhook-test/testing-simulacion" method="POST">
+    <form id="simulacionForm">
         <label for="pruebas_unitarias">Resultados de pruebas unitarias:</label>
         <select id="pruebas_unitarias" name="pruebas_unitarias">
             <option value="si">Sí</option>
@@ -77,8 +82,41 @@
         <input type="text" id="version" name="version" placeholder="v1.0.0">
 
         <button type="submit">Enviar</button>
+        <div class="message" id="message"></div>
     </form>
 </div>
+
+<script>
+document.getElementById('simulacionForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Evita que la página se recargue
+
+    const form = e.target;
+    const data = {
+        pruebas_unitarias: form.pruebas_unitarias.value,
+        pruebas_qa: form.pruebas_qa.value,
+        correccion_errores: form.correccion_errores.value,
+        version: form.version.value
+    };
+
+    try {
+        const response = await fetch('https://fredrick-overcanny-regena.ngrok-free.dev/webhook-test/testing-simulacion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            document.getElementById('message').textContent = '¡Formulario enviado correctamente!';
+        } else {
+            document.getElementById('message').textContent = 'Error al enviar el formulario.';
+            document.getElementById('message').style.color = 'red';
+        }
+    } catch (error) {
+        document.getElementById('message').textContent = 'Error de conexión.';
+        document.getElementById('message').style.color = 'red';
+    }
+});
+</script>
 
 </body>
 </html>
